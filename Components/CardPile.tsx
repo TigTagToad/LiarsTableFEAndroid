@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import {useState} from "react"
 import {Image, View, Text} from "react-native"
 
+//DEFUNCT CODE
+
 export const DrawCard: React.FC<{draw: boolean}> = ({ draw }) => {
     const [cards, setCards] = useState <any[]>([])
 

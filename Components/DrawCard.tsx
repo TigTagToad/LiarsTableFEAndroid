@@ -2,27 +2,37 @@ import { drawCard} from "../api";
 import { DrawCard } from "./CardPile";
 import React, { useEffect } from "react";
 import {useState} from "react"
-import {Button, View} from "react-native"
+import {Image, Button, View} from "react-native"
 
 
 export const DrawButton: React.FC = () => {
-    const [draw, setDraw] = useState <boolean>(false)
+    
+    const [cards, setCards] = useState <any[]>([])
 
   
     const handlePress =() => {
 
-        setDraw(true)
 
-       
+            drawCard(1).then((data)=>{
+                console.log(data, "<---data")
+                setCards([data[0],...cards])
+            })
 
     }
 
-        
+    console.log(cards)
     return (
     <View>
         
         <Button title="draw 2 cards" onPress={handlePress}/>
-        <DrawCard draw={draw}/>
+        {cards.map((element, index) => (
+        
+        <Image 
+            key={index}
+            source={{ uri: element.image }}
+            style={{ width: 200, height: 300 }} 
+        />
+    ))}
     </View>
 )
         
