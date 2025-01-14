@@ -14,7 +14,7 @@ export type PlayerHandContextType = {
     pile_id: number;
     cards: Card[];
     hand: Card[];
-    addCard: (card: Card) => void;
+    addCard: (card: Cards) => void;
     returnToCard: (card: Card, pile_id: number) => void;
 
 };

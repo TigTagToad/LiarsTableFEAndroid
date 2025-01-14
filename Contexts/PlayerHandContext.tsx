@@ -24,7 +24,6 @@ export const HandProvider: React.FC<{children: React.ReactNode}> = ({ children }
     const addCard = (newCard: Cards) => {
  
         setHand([...hand, ...newCard])
-        console.log(hand, "<--hand")
        
     }
     
