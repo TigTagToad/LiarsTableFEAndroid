@@ -3,19 +3,38 @@ import * as React from 'react'
 import { PlayerHandContextType, Card} from "../@types/playerHand";
 
 
-export const HandContext = React.createContext<PlayerHandContextType | null>(null);
+export const HandContext = React.createContext<PlayerHandContextType>({
+    user_id: "",
+    pile_id: 0,
+    cards: [],
+    hand: [],
+    addCard: () => {}, 
+    returnToCard: () => null 
+  });
+  
 
 
 
 export const HandProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-    
-    const [hand, setHand] = React.useState<Card[]>([])
-    const addCard = (card: Card) => {
-        setHand([...hand, card])
+    const [userId] = useState<string>("");
+    const [pileId] = useState<number>(0);
+    const [cards, setCards] = useState<Card[]>([]);
+    const [hand, setHand] = useState<Card[]>([]);
+
+    const addCard = (newCard: Card) => {
+        setHand([...hand, newCard])
+        console.log(hand, "<--hand")
+    }
+    const returnToCard = () => {
+
     }
     const value = {
+        user_id: userId,
+        pile_id: pileId,
+        cards,
         hand,
-        addCard
+        addCard,
+        returnToCard
     }
     return <HandContext.Provider value={value}>{children}</HandContext.Provider>
 }

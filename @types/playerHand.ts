@@ -1,7 +1,7 @@
 export interface Card {   
     code: string;
     image: string;
-    images: {};
+    images: Record<string, string>;
     value: string;
     suit: string;
     svg: string;
@@ -12,10 +12,10 @@ export interface Card {
 export type PlayerHandContextType = {
     user_id: string;
     pile_id: number;
-    cards: [];
+    cards: Card[];
     hand: Card[];
-    addCard: (card: []) => void;
-    returnToCard: (card: Card, pile_id: number) => null;
+    addCard: (card: Card) => void;
+    returnToCard: (card: Card, pile_id: number) => void;
 
 };
 

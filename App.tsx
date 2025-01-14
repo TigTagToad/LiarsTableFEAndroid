@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
@@ -19,13 +13,10 @@ import {
 import { GetDeck } from './Components/card';
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { DrawCard } from './Components/CardPile';
 import { DrawButton } from './Components/DrawCard';
+import { HandProvider } from './Contexts/PlayerHandContext';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -65,6 +56,8 @@ function App(): React.JSX.Element {
   };
 
   return (
+    <GestureHandlerRootView>
+    <HandProvider>
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -82,6 +75,8 @@ function App(): React.JSX.Element {
         </View>
       </ScrollView>
     </SafeAreaView>
+    </HandProvider>
+    </GestureHandlerRootView>
   );
 }
 
