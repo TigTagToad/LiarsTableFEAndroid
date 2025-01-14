@@ -56,26 +56,16 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <GestureHandlerRootView>
+    <GestureHandlerRootView  style={{ flex: 1 }}>
+      <View>
     <HandProvider>
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
+    {/* <SafeAreaView style={backgroundStyle}> */}
         <GetDeck /> 
         <DrawButton />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+        
+    {/* </SafeAreaView> */}
     </HandProvider>
+      </View>
     </GestureHandlerRootView>
   );
 }
