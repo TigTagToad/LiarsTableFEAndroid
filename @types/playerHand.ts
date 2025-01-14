@@ -4,10 +4,10 @@ export interface Card {
     images: Record<string, string>;
     value: string;
     suit: string;
-    svg: string;
-
-    
+    svg: string;    
 }
+
+export type Cards =  Card[]; 
 
 export type PlayerHandContextType = {
     user_id: string;

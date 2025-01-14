@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import * as React from 'react'
-import { PlayerHandContextType, Card} from "../@types/playerHand";
+import { PlayerHandContextType, Card, Cards} from "../@types/playerHand";
 
 
 export const HandContext = React.createContext<PlayerHandContextType>({
@@ -21,10 +21,13 @@ export const HandProvider: React.FC<{children: React.ReactNode}> = ({ children }
     const [cards, setCards] = useState<Card[]>([]);
     const [hand, setHand] = useState<Card[]>([]);
 
-    const addCard = (newCard: Card) => {
-        setHand([...hand, newCard])
+    const addCard = (newCard: Cards) => {
+ 
+        setHand([...hand, ...newCard])
         console.log(hand, "<--hand")
+       
     }
+    
     const returnToCard = () => {
 
     }
